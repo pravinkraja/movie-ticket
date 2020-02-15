@@ -35,7 +35,7 @@ export default class App extends React.Component {
 
   render() {
     const todos = this.state.todos.reverse().map((todo,key)=>
-    <View style={{ flexDirection: 'row',marginTop: 20}}>
+    <View style={styles.rendercss}>
     
       <TouchableOpacity style={styles.touchop}> 
       
@@ -117,6 +117,8 @@ const styles={
   width: 25,
 },
 
-imgplace: {width: 40, height: 40, }
+imgplace: {width: 40, height: 40, },
+
+rendercss: { flexDirection: 'row',marginTop: 20}
 
 };
