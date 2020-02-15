@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TextInput, TouchableOpacity, Button} from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TextInput, TouchableOpacity, Button, Image} from 'react-native';
 import { LinearGradient} from 'expo-linear-gradient';
 
 
@@ -36,24 +36,23 @@ export default class App extends React.Component {
   render() {
     const todos = this.state.todos.reverse().map((todo,key)=>
     <View style={{ flexDirection: 'row',marginTop: 20}}>
-      <TouchableOpacity style={{
-        width: 20,
-        height: 20,
-        borderRadius: 15,
-        borderWidth: 3,
-        borderColor: 'white',
-        margin: 15
-      }}>
+    
+      <TouchableOpacity style={styles.touchop}> 
+      
       </TouchableOpacity>
 
-      <Text style={{paddingLeft: 5, marginTop: 10, fontSize: 28, color: 'white'}}>{todo.title}</Text>
+      <Text style={styles.txtcss}>{todo.title}</Text>
+      <Image
+          style={styles.imgplace}
+          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+        />
     </View>
     );
     
 
 
     return (
-      <LinearGradient colors={['#FE01BB','#7F01FE']} style={{flex:1}}>
+      <LinearGradient colors={['#260163','#015263']} style={{flex:1}}>
         <StatusBar barStyle="light-content" />
        
   
@@ -75,10 +74,11 @@ export default class App extends React.Component {
             blurOnSubmit={true}
           />
         </View>
-
+        
         <View>
         {todos}
         </View>
+      
 
         
       </LinearGradient>
@@ -99,4 +99,24 @@ const styles={
     color: 'white',
     fontWeight: '500'
   },
+
+  txtcss: {paddingLeft: 5, 
+  marginTop: 10, 
+  fontSize: 28, 
+  color: 'red'},
+
+  touchop: {
+        width: 20,
+        height: 20,
+        borderRadius: 15,
+        borderWidth: 3,
+        borderColor: 'white',
+        margin: 15
+      },
+      storyCounters: {
+  width: 25,
+},
+
+imgplace: {width: 40, height: 40, }
+
 };
